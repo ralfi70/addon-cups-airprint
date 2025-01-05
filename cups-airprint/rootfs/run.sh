@@ -10,7 +10,7 @@ bashio::log.info "Preparing directories"
 
 if [ ! -e /data/cups/cupsd.conf ]; then
     cp -v -R /etc/cups /data
- bashio::log.info "File cupsd.conf not exist"  
+    bashio::log.info "File cupsd.conf not exist"  
 fi 
 
 rm -v -fR /etc/cups
