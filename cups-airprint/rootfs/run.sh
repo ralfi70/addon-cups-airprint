@@ -7,7 +7,12 @@ until [ -e /var/run/avahi-daemon/socket ]; do
 done
 
 bashio::log.info "Preparing directories"
-cp -v -R /etc/cups /data
+
+if [ ! -e /data/cups/cupsd.conf ]; then
+    cp -v -R /etc/cups /data
+    bashio::log.info "File cupsd.conf not exist"  
+fi 
+
 rm -v -fR /etc/cups
 
 ln -v -s /data/cups /etc/cups
